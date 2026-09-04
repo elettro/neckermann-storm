@@ -16,6 +16,11 @@
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
     .hero-actions a{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:800;border:1px solid rgba(3,63,44,.14);background:#fff;color:#073f2e}
     .hero-actions a.primary{background:#073f2e;color:#fff;border-color:#073f2e}
+    .video-section{padding:42px 0 18px}
+    .video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .video-card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid rgba(3,63,44,.1);box-shadow:0 10px 30px rgba(3,63,44,.06)}
+    .video-card video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#07130f;object-fit:contain}
+    .video-card .video-label{padding:14px 16px 16px;font-weight:750;color:#123e31}
     .gallery-section{padding:56px 0 72px}
     .gallery-section.alt{background:#f6f8f5}
     .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
@@ -32,7 +37,7 @@
     .lightbox.open{display:grid}
     .lightbox img{display:block;width:auto;height:auto;max-width:92vw;max-height:90vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.45);image-rendering:auto}
     .lightbox-close{position:fixed;top:18px;right:22px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.35);color:#fff;font-size:30px;cursor:pointer}
-    @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{display:block}.count{margin-top:14px}}
+    @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.video-grid{grid-template-columns:1fr}.section-head{display:block}.count{margin-top:14px}}
     @media(max-width:580px){.gallery-grid{grid-template-columns:1fr}.page-hero{padding-top:42px}}
   </style>
 </head>
@@ -49,7 +54,25 @@
         <div class="winner-kicker">Current Creative Library</div>
         <h1>Instant Winner</h1>
         <p>Aktuelle Neckermann Strom Sofortgewinn-Kreativvarianten. Die Seite ist jetzt in drei klare Gruppen geteilt: Solar, Gaming-PC mit Mann am Computer und alle weiteren Kampagnenmotive.</p>
-        <div class="hero-actions"><a class="primary" href="#solar">Solar ansehen</a><a href="#computer">Gaming-PC ansehen</a><a href="#rest">Weitere Motive</a><a href="./v1/">V1 Archiv öffnen</a></div>
+        <div class="hero-actions"><a class="primary" href="#videos">Videos ansehen</a><a href="#solar">Solar ansehen</a><a href="#computer">Gaming-PC ansehen</a><a href="#rest">Weitere Motive</a><a href="./v1/">V1 Archiv öffnen</a></div>
+      </div>
+    </section>
+
+    <section class="video-section shell" id="videos">
+      <div class="section-head"><div><div class="winner-kicker">Video Creative</div><h2>Instant Winner Videos</h2><p>Aktuelle Video-Kreativvarianten für die Instant-Winner-Kampagne.</p></div><span class="count">2</span></div>
+      <div class="video-grid">
+        <article class="video-card">
+          <video controls playsinline preload="metadata">
+            <source src="videos/Seedance%202_0%20Fast%20-%20German%20script%20for%20an%20online%20social%20ad%20have%20male%20character%20talking%20organic%20normal.mp4" type="video/mp4">
+          </video>
+          <div class="video-label">Instant Winner Video 01</div>
+        </article>
+        <article class="video-card">
+          <video controls playsinline preload="metadata">
+            <source src="videos/Seedance%202_0%20Fast%20-%20German%20script%20for%20an%20online%20social%20ad%20have%20male%20character%20talking%20organic%20normal%20(1).mp4" type="video/mp4">
+          </video>
+          <div class="video-label">Instant Winner Video 02</div>
+        </article>
       </div>
     </section>
 
