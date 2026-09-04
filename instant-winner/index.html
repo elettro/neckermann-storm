@@ -62,13 +62,13 @@
       <div class="section-head"><div><div class="winner-kicker">Video Creative</div><h2>Instant Winner Videos</h2><p>Aktuelle Video-Kreativvarianten für die Instant-Winner-Kampagne.</p></div><span class="count">2</span></div>
       <div class="video-grid">
         <article class="video-card">
-          <video controls playsinline preload="metadata">
+          <video class="preview-frame-video" controls playsinline preload="auto" data-preview-time="2">
             <source src="videos/Seedance%202_0%20Fast%20-%20German%20script%20for%20an%20online%20social%20ad%20have%20male%20character%20talking%20organic%20normal.mp4" type="video/mp4">
           </video>
           <div class="video-label">Instant Winner Video 01</div>
         </article>
         <article class="video-card">
-          <video controls playsinline preload="metadata">
+          <video class="preview-frame-video" controls playsinline preload="auto" data-preview-time="2">
             <source src="videos/Seedance%202_0%20Fast%20-%20German%20script%20for%20an%20online%20social%20ad%20have%20male%20character%20talking%20organic%20normal%20(1).mp4" type="video/mp4">
           </video>
           <div class="video-label">Instant Winner Video 02</div>
@@ -93,6 +93,18 @@
   <footer class="footer"><div class="footer-row shell"><strong>Neckermann Strom</strong><span>Internal brand resource · <a href="./v1/">V1 Gallery</a></span></div></footer>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildansicht"><button class="lightbox-close" type="button" aria-label="Schließen">×</button><img alt="Vergrößerte Kampagnenansicht"></div>
   <script>
+    document.querySelectorAll('.preview-frame-video').forEach(video=>{
+      const previewTime=Number(video.dataset.previewTime||2);
+      const setPreviewFrame=()=>{
+        if(!Number.isFinite(video.duration)||video.duration<=0)return;
+        const target=Math.min(previewTime,Math.max(0,video.duration-0.1));
+        try{video.currentTime=target}catch(e){}
+      };
+      if(video.readyState>=1)setPreviewFrame();
+      else video.addEventListener('loadedmetadata',setPreviewFrame,{once:true});
+      video.addEventListener('seeked',()=>video.pause(),{once:true});
+    });
+
     const groups={
       solar:Array.from({length:12},(_,i)=>i+1),
       computer:Array.from({length:11},(_,i)=>i+24),
